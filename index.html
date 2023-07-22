@@ -3,31 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Sort</title>
+    <title>Playground</title>
   </head>
   <body>
-    <h1>Sleep Sort</h1>
-    <form onsubmit="sort(event); return false;">
-      <label>
-        numbers:
-        <input type="text" name="numbers" value="5 6 3 4 3 2 11 3" />
-        <input type="submit" value="sort" />
-      </label>
-    </form>
-    <h2>sorted:</h2>
-    <p id="output"></p>
-    <script>
-      function sort(e) {
-        const output = document.getElementById("output");
-        output.innerText = "";
-        for (const v of e.target.numbers.value
-          .split(" ")
-          .map((s) => parseInt(s))) {
-          setTimeout(() => {
-            output.innerText += ` ${v}`;
-          }, v);
-        }
-      }
-    </script>
+    <h1>Playground</h1>
+    Check <a href="https://github.com/manybugsdev/playground">git repos.</a>
   </body>
 </html>
