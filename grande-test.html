@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="grande.js"></script>
+    <style>
+      main {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const { t, hooks } = Grande;
+      const { useState } = hooks;
+      const App = () => {
+        const [todos, setTodos] = useState([1, 2, 3]);
+        return t.main(
+          t.h1("Todo"),
+          t.hr(),
+          t.ul(todos.map((todo) => t.li(todo)))
+        );
+      };
+      document.body.appendChild(App());
+    </script>
+  </body>
+</html>
