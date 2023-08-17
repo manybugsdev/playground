@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import { h, isValidElement, render } from "https://esm.sh/preact@10.17.0";
+      import { useState } from "https://esm.sh/preact@10.17.0/hooks";
+      import { thx } from "./thx.js";
+      const t = thx(h, isValidElement);
+      t.App = () => {
+        const [count, setCount] = useState(0);
+        return t.main(
+          t.h1("Counter"),
+          t.p(count),
+          t.button({ onClick: () => setCount((c) => c + 1) }, "Add")
+        );
+      };
+      render(t.App(), document.body);
+    </script>
+  </body>
+</html>
