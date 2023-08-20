@@ -3,64 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <title>Trout</title>
   </head>
   <body>
-    <script>
-      function peg(x, y, w, h, r) {
-        push();
-        noStroke();
-        fill("gray");
-        translate(x, y);
-        rotate(r);
-        rect(-w / 10, -h / 4, w / 5, (h * 3) / 4);
-        ellipse(w / 4, 0, w / 2, h / 2);
-        ellipse(0, -h / 4, w / 2, h / 2);
-        ellipse(-w / 4, 0, w / 2, h / 2);
-        pop();
-      }
-
-      function neck(x, y, w, h, r) {
-        push();
-        stroke("black");
-        fill("white");
-        translate(x, y);
-        rotate(r);
-        line(-w / 2, -h / 4, -w / 2, h / 4);
-        bezier(
-          -w / 2,
-          h / 4,
-          -w / 2 + w / 12,
-          h / 4,
-          -w / 2 + w / 12,
-          h / 4,
-          -w / 2 + w / 3,
-          h / 2
-        );
-        line(-w / 3 - w / 24, h / 2, w / 2, 0);
-        line(w / 2, 0, -w / 2 + w / 6, -h / 2);
-        bezier(
-          -w / 2 + w / 6,
-          -h / 2,
-          -w / 2 + w / 12,
-          -h / 2,
-          -w / 2 + w / 12,
-          -h / 4 + h / 12,
-          -w / 2,
-          -h / 4
-        );
-        pop();
-      }
-
-      function setup() {
-        createCanvas(300, 300);
-      }
-
-      function draw() {
-        background("lightgray");
-        neck(150, 150, 300, 150, 0);
-      }
+    <canvas id="canvas"></canvas>
+    <script type="module">
+      import { trout } from "./trout.js";
+      const { pen } = trout(canvas);
+      pen.grid();
     </script>
   </body>
 </html>
