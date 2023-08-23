@@ -3,14 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trout</title>
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #line {
+        stroke-dasharray: 300 1000000;
+        stroke-dashoffset: 10;
+        animation: dash 5s infinite linear;
+      }
+      @keyframes dash {
+        from {
+          stroke-dashoffset: 300;
+        }
+        to {
+          stroke-dashoffset: -700;
+        }
+      }
+    </style>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <svg id="app" width="480" height="480" viewBox="-240,-240,480,480">
+      <rect x="-240" y="-240" width="480" height="480" fill="black" />
+      <g id="one">
+        <path
+          id="line"
+          d="M0,0L55,-70H-55L0,-240L55,-70Z"
+          flll="none"
+          stroke="green"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="30"
+        />
+      </g>
+      <use href="#one" transform="rotate(72)" />
+      <use href="#one" transform="rotate(144)" />
+      <use href="#one" transform="rotate(216)" />
+      <use href="#one" transform="rotate(288)" />
+    </svg>
     <script type="module">
-      import { trout } from "./trout.js";
-      const { pen } = trout(canvas);
-      pen.grid();
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+          };
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>
